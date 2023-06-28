@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Animals R Us </title>
+    <link rel="stylesheet" href="light.css" id = "colour">
+</head>
+
+<body>
+    <div>
+        <div id="mySidenav" class="sidenav">
+            <span id="clsbttn" class="closenav">&#9776;</span>
+            <a href="home.html">home</a>
+            <a href="progress.html">progress</a>
+            <a href="settings.html">settings</a>
+            <a href="instructions.html">instructions</a>
+
+        </div>
+        <div>
+            <div id="main">
+                <span id="opnbttn" class="opennav">&#9776;</span>
+                <div id=buttons>
+                    <button class = "basket">Basket</button>
+                    <button class="logout">Logout</button>
+                </div>
+                <div>
+                    <center>
+                        <h1 id="message">snake</h1>
+                    </center>
+                </div>
+                <div class="grid-container">
+                    <div class="picture"><img id="animal-background" src=images/snake.png></div>
+                    <div class="grid-item">£12<br><div id = "errmsg" style = "color:rgb(11, 241, 23); font-size: 18px;"></div><button id="addbskt">add to basket</button></div><br><br>
+                    <div class="description">Introducing the mesmerizing Snake - a creature that will captivate you with its slithering movements and hypnotic gaze. Measuring 30 feet (9 meters) in length and weighing 550 pounds (250 kilograms), this reptile is a true wonder of the animal kingdom. With its distinctive scales, forked tongue, and deadly fangs, the Snake is a fearsome predator that commands respect. Whether you're fascinated by the mysteries of the natural world or simply intrigued by the complexity of life, the Snake is a creature that will leave you in awe of its beauty and power. Order now and experience the thrill of encountering this majestic reptile.
+                    </div>
+                </div>
+                <div>
+                    <h1><center>reviews</center></h1>
+                    <div>
+                        <form class="leavereview">
+                            <div id="leavereview">
+                                <label>leave a review:</label>
+                                <br>
+                                <textarea placeholder="..." name="review" rows="4"></textarea>
+                                <br>
+                                <label>star rating:</label>
+                                <input type="number" id="starrate" name="starrate" min="1" max="5" required>
+                                <br><br>
+                                <button>submit</button>
+                            </div>
+                        </form>
+                        <div id = "starpic"></div><!--js puts correct star image here-->
+                        <br><br>
+                        <div class="review">
+                            <img src = "images/4.png" id = "smallstrpc"><br>
+                            The snake I recieved took ages to arrive and so I was a bit disappointed. Other than that, it has been a fantastic pet and gives great hugs.
+                        </div> <br>
+                        <div class="review">
+                            <img src = "images/1.png" id = "smallstrpc"><br>
+                            The snake I recieved was much smaller than advertised. I contacted the seller to try and get a refund but they refused to give me one. Please do not get one.
+                        </div> <br>
+                        <div class="review">
+                            <img src = "images/2.png" id = "smallstrpc"><br>
+                            The hissing noise my snake makes is a bit too loud for my liking and it's really been getting on my nerves.
+                        </div>
+                        <div class="review" id="newreview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br><br><br>
+    <div id="total_reviews" style="display: none;">7</div> <!--stores total of 3 reviews so js can average total reviews-->
+    <div id="flag" style="display: none;">flag{ch4cK u53R 1nPut5}</div> <!--adds flag so user can get it via XSS-->
+    <script src=" product.js">
+    </script>
+</body>
+
+</html>

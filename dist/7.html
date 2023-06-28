@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Animals R Us </title>
+    <link rel="stylesheet" href="light.css" id = "colour">
+</head>
+
+<body>
+    <div>
+        <div id="mySidenav" class="sidenav">
+            <span id="clsbttn" class="closenav">&#9776;</span>
+            <a href="home.html">home</a>
+            <a href="progress.html">progress</a>
+            <a href="settings.html">settings</a>
+            <a href="instructions.html">instructions</a>
+
+        </div>
+        <div>
+            <div id="main">
+                <span id="opnbttn" class="opennav">&#9776;</span>
+                <div id=buttons>
+                    <button class = "basket">Basket</button>
+                    <button class="logout">Logout</button>
+                </div>
+                <div>
+                    <center>
+                        <h1 id="message">frog</h1>
+                    </center>
+                </div>
+                <div class="grid-container">
+                    <div class="picture"><img id="animal-background" src=images/frog.png></div>
+                    <div class="grid-item">£9<br><div id = "errmsg" style = "color:rgb(11, 241, 23); font-size: 18px;"></div><button id="addbskt">add to basket</button></div><br><br>
+                    <div class="description">Introducing the delightful Frog - a creature that will bring a smile to your face with its adorable appearance and cheerful croak. Measuring 4 inches (10 centimeters) in length and weighing 1 pound (0.5 kilograms), this amphibian is a charming addition to any ecosystem. With its distinctive webbed feet, bulging eyes, and slimy skin, the Frog is a unique and fascinating creature that has captured the hearts of people around the world. Whether you're a nature enthusiast or simply appreciate the wonders of the animal kingdom, the Frog is a delightful creature that is sure to bring joy to your life. Order now and experience the wonder of this lovable amphibian.
+                    </div>
+                </div>
+                <div>
+                    <h1><center>reviews</center></h1>
+                    <div>
+                        <form class="leavereview">
+                            <div id="leavereview">
+                                <label>leave a review:</label>
+                                <br>
+                                <textarea placeholder="..." name="review" rows="4"></textarea>
+                                <br>
+                                <label>star rating:</label>
+                                <input type="number" id="starrate" name="starrate" min="1" max="5" required>
+                                <br><br>
+                                <button>submit</button>
+                            </div>
+                        </form>
+                        <div id = "starpic"></div><!--js puts correct star image here-->
+                        <br><br>
+                        <div class="review">
+                            <img src = "images/5.png" id = "smallstrpc"><br>
+                            The frog I ordered gets along really well with my kids. They absolutely love it. I would recommend every family own one.
+                        </div> <br>
+                        <div class="review">
+                            <img src = "images/3.png" id = "smallstrpc"><br>
+                            It looked at me funny once.
+                        </div> <br>
+                        <div class="review">
+                            <img src = "images/5.png" id = "smallstrpc"><br>
+                            I bought it on a whim but its magnificent and for such a low price too - absolute bargain!
+                        </div>
+                        <div class="review" id="newreview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br><br><br>
+    <div id="total_reviews" style="display: none;">13</div> <!--stores total of 3 reviews so js can average total reviews-->
+    <div id="flag" style="display: none;">flag{ch4cK u53R 1nPut5}</div> <!--adds flag so user can get it via XSS-->
+    <script src=" product.js">
+    </script>
+</body>
+
+</html>

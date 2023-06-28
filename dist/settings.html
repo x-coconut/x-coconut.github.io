@@ -1,0 +1,81 @@
+<!DOCTYPE html>   
+<html>   
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<title> Animals R us </title> 
+<link rel="stylesheet" href="light.css" id ="colour">    
+</head>    
+<body> 
+    <div>
+        <div id="mySidenav" class="sidenav">
+            <span id="clsbttn" class="closenav">&#9776;</span>
+            <a href="home.html">home</a>
+            <a href="progress.html">progress</a>
+            <a href="settings.html">settings</a>
+            <a href="instructions.html">instructions</a>
+        </div>
+        <div id="main">
+            <span id="opnbttn" class="opennav">&#9776;</span>
+            <div id=buttons>
+                <button class = "basket">Basket</button>
+                <button class="logout">Logout</button>
+            </div>
+            <div>
+                <center>
+                    <h1 id="message"> settings </h1>
+                </center>
+            </div>
+            <br>
+            <div id="popup" class="popup" style="display:none;"> <!--puts the popup a user has to type confirmation into on screen-->
+                <div class="popup-content">
+                    <p id="content"></p>
+                    <p id = "badYes"></p>
+                    <br>
+                    <input type="text" id="confirmation" placeholder=" yes">
+                    <div class= "red">
+                        <button class = "submit">submit</button>
+                        <button class="cancel">cancel</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+
+            <form class = "updateEmail"> 
+                <div id="updateEmail">
+                    <label>update email:</label>
+                    <p style="color:darkred"><strong>this will not change the email as it is a demo</strong></p>
+                    <br>
+                    <div id = "errmsgEmail"></div>
+                    <div id="email"></div>
+                    <input type = "text" placeholder="new email" name="newEmail" autocomplete="off"/> 
+                    <input type = "password" placeholder="password" name="password"/> 
+                    <button>submit</button>
+                </div>
+            </form>
+            <form class = "updatePwd"> 
+                <div id="updatePwd">
+                    <label>update password:</label>
+                    <p style="color:darkred"><strong>this will not change the password as it is a demo</strong></p>
+                    <div id = "errmsgPwd"></div>
+                    <div>ㅤ</div> <!--keep same height as email form-->
+                    <input type = "password" placeholder="current password" name="currPwd"/> 
+                    <input type = "password" placeholder="new password" name="newPwd"/> 
+                    <button>submit</button>
+                </div>
+            </form>
+            </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <center><div id = "deleteMessage"></div></center>
+            <div class="button-container leftmarg">
+                <button id="colourbtn" class="colourbtn">Switch colour theme</button>
+                <br>
+                <button id="rankbtn" class="hiderank"></button>
+            </div>
+            <div class="button-container red rightmarg">
+                <button class="resetprg" id="reset progress">Reset Progress</button>
+                <button class="dltacc" id="delete account">Delete Account</button>
+            </div>
+        </div>
+    </div>
+    <script src = "settings.js"></script>    
+</body>     
+</html>  

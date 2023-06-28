@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Animals R Us </title>
+    <link rel="stylesheet" href="light.css" id = "colour">
+</head>
+
+<body>
+    <div>
+        <div id="mySidenav" class="sidenav">
+            <span id="clsbttn" class="closenav">&#9776;</span>
+            <a href="home.html">home</a>
+            <a href="progress.html">progress</a>
+            <a href="settings.html">settings</a>
+            <a href="instructions.html">instructions</a>
+
+        </div>
+        <div>
+            <div id="main">
+                <span id="opnbttn" class="opennav">&#9776;</span>
+                <div id=buttons>
+                    <button class = "basket">Basket</button>
+                    <button class="logout">Logout</button>
+                </div>
+                <div>
+                    <center>
+                        <h1 id="message">flamingo</h1>
+                    </center>
+                </div>
+                <div class="grid-container">
+                    <div class="picture"><img id="animal-background" src=images/flamingo.png></div>
+                    <div class="grid-item">£30<br><div id = "errmsg" style = "color:rgb(11, 241, 23); font-size: 18px;"></div><button id="addbskt">add to basket</button></div><br><br>
+                    <div class="description">Introducing the graceful Flamingo - a stunning bird that will enchant you with its vibrant colors and elegant form. Measuring 5 feet (1.5 meters) tall and weighing 8 pounds (3.6 kilograms), this majestic bird is a sight to behold. With its distinctive pink plumage, long neck, and slender legs, the Flamingo is an iconic symbol of tropical paradise. Whether you're a bird enthusiast or simply drawn to the natural beauty of the world, the Flamingo is a fascinating creature that will capture your imagination. Order now and experience the elegance and charm of this magnificent bird.
+                    </div>
+                </div>
+                <div>
+                    <h1><center>reviews</center></h1>
+                    <div>
+                        <form class="leavereview">
+                            <div id="leavereview">
+                                <label>leave a review:</label>
+                                <br>
+                                <textarea placeholder="..." name="review" rows="4"></textarea>
+                                <br>
+                                <label>star rating:</label>
+                                <input type="number" id="starrate" name="starrate" min="1" max="5" required>
+                                <br><br>
+                                <button>submit</button>
+                            </div>
+                        </form>
+                        <div id = "starpic"></div><!--js puts correct star image here-->
+                        <br><br>
+                        <div class="review">
+                            <img src = "images/1.png" id = "smallstrpc"><br>
+                            It's so smelly! Do yourself a favour and do not order!
+                        </div> <br>
+                        <div class="review">
+                            <img src = "images/2.png" id = "smallstrpc"><br>
+                            It's far too lazy - all it does is stand around on one leg all day, every day.
+                        </div> <br>
+                        <div class="review">
+                            <img src = "images/1.png" id = "smallstrpc"><br>
+                            My flamingo requires too much water both to drink and stand in. I've owned my flamingo just 1 month and it has already cost me an additional £3000 to my water bill as it just needs more water constantly. This was mentioned nowhere in the product description. I'm not happy and I fear I am soon going to be living on the streets with my flamingo as I won't be able to keep up with the costs.
+                        </div>
+                        <div class="review" id="newreview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br><br><br>
+    <div id="total_reviews" style="display: none;">4</div> <!--stores total of 3 reviews so js can average total reviews-->
+    <div id="flag" style="display: none;">flag{ch4cK u53R 1nPut5}</div> <!--adds flag so user can get it via XSS-->
+    <script src=" product.js">
+    </script>
+</body>
+
+</html>

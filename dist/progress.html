@@ -1,0 +1,96 @@
+<!DOCTYPE html>   
+<html>   
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<title>Animals R us</title> 
+<link rel="stylesheet" href="light.css" id ="colour">    
+</head>    
+<body> 
+    <div id="mySidenav" class="sidenav">
+        <span id="clsbttn" class="closenav">&#9776;</span>
+        <a href="home.html">home</a>
+        <a href="progress.html">progress</a>
+        <a href="settings.html">settings</a>
+        <a href="instructions.html">instructions</a>
+    </div>
+    <div>
+        <div id="main">
+            <span id="opnbttn" class="opennav">&#9776;</span>
+            <div id=buttons>
+                <button class = "basket">Basket</button>
+                <button class="logout">Logout</button>
+            </div>
+            <div>
+                <center>
+                    <h1 id="message">progress</h1>
+                </center>
+            </div>
+            <div class="bar_container">              
+                  <div id="bar" class="bar" style="height:24px;width:0%"><strong>0%</strong></div>
+            </div>
+            <div id = "rank"><!--rank goes here after js runs--></div>
+            <br>
+            <form class="enterflg">
+                <div id="enterflg">
+                    <label>submit a flag:</label>
+                    <div id = "feedback"><!--err/success message added by js--></div>
+                    <input type = "text" placeholder="flag{...}" name="enterflg" autocomplete="off"/> 
+                    <button>submit</button>
+                </div>
+            </form>
+            <br><br>
+            <h1 id="message" class = "indent">challenges</h1>
+            <div id = "challenge_6" class = "indent"><details>
+                <summary id = "tick_6">comments</summary>
+                <details class = "indent"><summary>hint</summary>Did someone leave a flag in the comments and forget to remove it?</details>
+                <details class = "indent"><summary>solution</summary>Visit the login page (you will need to logout to do so).There, right click and select 'view page source'. Within the code there is a HTML comment containing a flag.</details>
+                <details class = "indent"><summary>flag</summary>flag{ch4cK c0MmenT5}</details>
+            </details>
+            </div>
+            <br>
+            <div id = "challenge_1" class = "indent"><details>
+                <summary id = "tick_1">hidden product</summary>
+                <details class = "indent"><summary>hint</summary>Can you work out the URL to find a secret product not displayed on the home page?</details>
+                <details class = "indent"><summary>solution</summary>Visit the page of any animal displayed on the home page. From there change the number in the URL to 1. your URL should now end in '1.html'. Once you visit this URL, a flag is displayed onscreen.</details>
+                <details class = "indent"><summary>flag</summary>flag{d0n't U5e IncR3mEntAL URLs}</details>
+            </details>
+            </div>
+            <br>
+            <div id = "challenge_2" class = "indent"><details>
+                <summary id = "tick_2">robots</summary>
+                <details class = "indent"><summary>hint</summary>A file containing instructions for web crawlers. (Google may help)</details>
+                <details class = "indent"><summary>solution</summary>Edit your current URL by removing '/progress' and replacing it with '/robots.txt'. If you visit this new URL, there is a flag displayed in the text.</details>
+                <details class = "indent"><summary>flag</summary>flag{4lwAy5_ch3cK_R0boTs}</details>
+            </details>
+            </div>
+            <br>
+            <div id = "challenge_3" class = "indent"><details>
+                <summary id = "tick_3">admin page</summary>
+                <details class = "indent"><summary>hint 1</summary>Solving the previous challenge may help you</details>
+                <details class = "indent"><summary>hint 2</summary>What are the default credentials? (Google may help)</details>
+                <details class = "indent"><summary>solution</summary>Edit your current URL by removing '/progress' and replacing it with '/phpmyadmin.html'. If you visit this new URL, you will find an admin login page. If you login with the default credentials (username = 'root', password = ''), a flag is displayed.</details>
+                <details class = "indent"><summary>flag</summary>flag{d0nT us3 DeF4uLt Cr3d5}</details>
+            </details>
+            </div>
+            <br>
+            <div id = "challenge_4" class = "indent"><details>
+                <summary id = "tick_4">SQL login - log in to the admin's account. Her email is 'admin@guest.com'</summary>
+                <details class = "indent"><summary>hint</summary>Try a very simple SQL injection on the main login page. (Google may help)</details>
+                <details class = "indent"><summary>solution</summary>Visit the login page. Try to login with the email 'admin@guest.com;--' and any password. A flag will be displayed on screen.</details>
+                <details class = "indent"><summary>flag</summary>flag{d1s5aLloW sp3Ci4l cHar4cteR5}</details>
+            </details>
+            </div>
+            <br>
+            <div id = "challenge_5" class = "indent"><details>
+                <summary id = "tick_5">XSS - retrieve the element with the id 'flag'</summary>
+                <details class = "indent"><summary>hint 1</summary>Is there a page on this website where text a user enters gets displayed on screen?</details>
+                <details class = "indent"><summary>hint 2</summary>Use the 'img' tag. (Google may help)</details>
+                <details class = "indent"><summary>solution</summary>Visit the page for any animal. In the review box, leave the following review:<br>&lt;img src = "" onerror = 'alert(document.getElementById("flag").innerHTML)'&gt;</details>
+                <details class = "indent"><summary>flag</summary>flag{ch4cK u53R 1nPut5}</details>
+            </details>
+            </div>
+        </div>
+    </div>  
+    <script src = "progress.js"></script>    
+</body>     
+</html>  
