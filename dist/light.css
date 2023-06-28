@@ -1,0 +1,422 @@
+Body {
+  font-family: 'Comic Sans MS';
+  background-color: lemonchiffon;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 50% 45%;
+  grid-template-rows: 20% 75%;
+  padding: 1%;
+  gap: 10px;
+  font-size: 30px;
+}
+
+.grid-container>div {
+  text-align: left;
+}
+
+button {
+  background-color: #9c3934;
+  font-size: 20px;
+  width: 100px;
+  height: 40px;
+  color: #FFFFFF;
+  padding: 0px;
+  border: 5px solid #9c3934;
+  cursor: pointer;
+  border-radius: 50px;
+  text-align: center;
+  font-family: 'Comic Sans MS';
+}
+
+input[type=text],
+input[type=password] {
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 2px solid #9c3934;
+  box-sizing: border-box;
+  font-family: 'Comic Sans MS';
+}
+
+button:hover {
+  background: #FFFFFF;
+  color: #9c3934;
+}
+
+.forgotpasswordbtn {
+  width: 200px;
+  padding: 0px;
+  margin: 10px 5px;
+}
+
+
+.box {
+  padding: 25px;
+  width: 500px;
+  background-color: paleturquoise;
+  border: 3px solid #9c3934;
+  width: 500px;
+  margin: auto;
+}
+
+label {
+  color: darkblue;
+}
+
+h1 {
+  color: darkblue;
+}
+
+#buttons {
+  float: right;
+}
+
+.product {
+  display: inline-block;
+  text-align: center;
+  color: black;
+  margin: 2em;
+  padding: 1em;
+  background-color: #FFFFFF;
+  border-radius: 2em;
+}
+
+.product:hover {
+  background: #9c3934;
+  color: white;
+}
+
+#errmsg {
+  color: red;
+}
+
+#right {
+  float: right;
+}
+
+#left {
+  float: left;
+}
+
+#animal-background {
+  padding: 10%;
+  border-radius: 2em;
+  height: auto;
+  width: 85%;
+  vertical-align: middle;
+}
+
+.picture {
+  padding: auto;
+  border-radius: 2em;
+  height: auto;
+  width: 80%;
+  background-color: paleturquoise;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  border: 5px solid #9c3934;
+  float: none;
+}
+
+.description {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  font-size: 20px;
+}
+
+#addbskt {
+  font-size: 15px;
+  width: 125px;
+  height: 40px;
+}
+
+
+/*sidenav*/
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #9c3934;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 24px;
+}
+
+.sidenav a {
+  padding: 50px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 23px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: paleturquoise;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+#opnbttn {
+  color: #FFFFFF;
+  font-size: 30px;
+  cursor: pointer;
+  border: 10px solid #9c3934;
+  background-color: #9c3934;
+  border-radius: 1em;
+  position: fixed;
+}
+
+#opnbttn:hover{
+  color:paleturquoise;
+}
+
+#clsbttn {
+  color: #FFFFFF;
+  font-size: 30px;
+  cursor: pointer;
+  padding-left: 35px;
+}
+
+#clsbttn:hover{
+  color:paleturquoise;
+}
+
+
+#leavereview {
+  padding-right: 5%;
+  width: 45%;
+  float: right;
+}
+
+.review {
+  padding-left: 5%;
+  width: 35%;
+}
+
+#starrate {
+  width: 10%;
+  min-width: 40px;
+  margin: 8px 0;
+  padding: 6px 6px;
+  border: 2px solid #9c3934;
+  box-sizing: border-box;
+  font-family: 'Comic Sans MS';
+}
+
+#starpic {
+  padding-left: 5%;
+  height: 75px;
+  width: auto;
+}
+
+#smallstrpc {
+  padding-left: 0%;
+  height: 20px;
+  width: auto;
+}
+
+textarea {
+  width: 100%;
+  margin: 8px 0;
+  padding: 6px 6px;
+  display: inline-block;
+  border: 2px solid #9c3934;
+  box-sizing: border-box;
+  resize: vertical;
+  font-family: 'Comic Sans MS';
+}
+
+.bar_container {
+  margin: 20px;
+  background-color: #ffffff;
+  border: 2px solid #9c3934;
+  border-radius: 2em;
+}
+
+.bar {
+  background-color: rgb(11, 241, 23);
+  color: darkblue;
+  border-radius: 2em;
+  text-align: center;
+}
+
+#rank {
+  float: right;
+  margin-right: 25px;
+  color: darkblue;
+}
+
+#enterflg {
+  width: 30%;
+  height: auto;
+  margin-left: 20px;
+}
+
+.indent{
+  margin-left: 20px;
+}
+
+#updateEmail{
+  padding-left: 5%;
+  width: 35%;
+  float: left;
+}
+
+#updatePwd{
+  padding-right: 5%;
+  width: 35%;
+  float: right;
+}
+
+.red button{
+  background-color: red;
+  border-color: red;
+  width: auto;
+  height: 40px;
+  color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.red button:hover{
+  background-color: #FFFFFF;
+  color:red;
+}
+
+/*popup for deletion confirmation*/
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: lemonchiffon;
+  color: red;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+  max-width: 80%;
+  max-height: 100%;
+  margin: 0 auto;
+  overflow: scroll;
+}
+
+.popup-cont {
+  background-color: lemonchiffon;
+  color: darkblue;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.popup input {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.popup p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.hiderank {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.colourbtn {
+  width: 205px;
+  margin-bottom: 10px;
+}
+
+/*buttons on settings page formatting*/
+.button-container {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.leftmarg {
+  margin-left: 50px;
+}
+
+.rightmarg {
+  float: right;
+  margin-right: 50px;
+}
+
+.rightmarg button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#sale{
+margin: 2em;
+padding: 1em;
+border-radius: 2em;
+display: inline-block;
+text-align: center;
+color: black;
+text-decoration: none; /*stops link underlining*/
+}
+
+#sale:hover {
+  background-color: #9c3934;
+  color: white;
+}
+
+#total {
+  color: darkblue;
+  font-size: 30px;
+}
+
+.basket_pic{
+  height: 100px;
+  width: 150px;
+}
+
+#quantity {
+  width: 60px;
+  margin: 8px 0;
+  height: 25px;
+  padding: 6px 6px;
+  border: 2px solid #9c3934;
+  box-sizing: border-box;
+  font-family: 'Comic Sans MS';
+}
+
+.quant label{
+  color: black;
+}

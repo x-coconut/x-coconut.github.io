@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /phpmyadmin.html
+flag{4lwAy5_ch3cK_R0boTs}

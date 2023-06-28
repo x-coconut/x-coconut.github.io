@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Animals R Us </title>
+    <link rel="stylesheet" href="light.css" id = "colour">
+</head>
+
+<body>
+    <div>
+        <div id="mySidenav" class="sidenav">
+            <span id="clsbttn" class="closenav">&#9776;</span>
+            <a href="home.html">home</a>
+            <a href="progress.html">progress</a>
+            <a href="settings.html">settings</a>
+            <a href="instructions.html">instructions</a>
+
+        </div>
+        <div>
+            <div id="main">
+                <span id="opnbttn" class="opennav">&#9776;</span>
+                <div id=buttons>
+                    <button class = "basket">Basket</button>
+                    <button class="logout">Logout</button>
+                </div>
+                <div>
+                    <center>
+                        <h1 id="message">octopus</h1>
+                    </center>
+                </div>
+                <div style="color:red; margin-left:35px;">flag{d0n't U5e IncR3mEntAL URLs}</div>
+                <div class="grid-container">
+                    <div class="picture"><img id="animal-background" src=images/octopus.png></div>
+                    <div class="grid-item">£1<br><div id = "errmsg" style = "color:rgb(11, 241, 23); font-size: 18px;"></div><button id="addbskt">add to basket</button></div><br><br>
+                    <div class="description">Discover the incredible Octopus - a master of disguise that will add a touch of mystery to any collection. Measuring 16 feet (5 meters) in length and weighing 45 kilograms, this sea creature is a true wonder of the ocean. With its unique ability to change color and shape, the Octopus is a fascinating and intelligent creature that will captivate and amaze. Order now and bring home the magic of the ocean with this incredible addition to your collection.
+                    </div>
+                </div>
+                <div>
+                    <h1><center>reviews</center></h1>
+                    <div>
+                        <form class="leavereview">
+                            <div id="leavereview">
+                                <label>leave a review:</label>
+                                <br>
+                                <textarea placeholder="..." name="review" rows="4"></textarea>
+                                <br>
+                                <label>star rating:</label>
+                                <input type="number" id="starrate" name="starrate" min="1" max="5" required>
+                                <br><br>
+                                <button>submit</button>
+                            </div>
+                        </form>
+                        <div id = "starpic"></div><!--js puts correct star image here-->
+                        <br><br>
+                        <div class="review">
+                            <img src = "images/5.png" id = "smallstrpc"><br>
+                            This octopus is amazing! It arrived in great condition and was full of personality - it's a great addition to my pond.
+                        </div> <br>
+                        <div class="review">
+                            <img src = "images/5.png" id = "smallstrpc"><br>
+                            I am absolutely in love with this octopus! It's fascinating to watch it move and change colors, and it's very interactive with me during feeding time. The octopus was shipped quickly and arrived healthy and happy. I'm so glad I made this purchase and would definitely recommend it to others.
+                        </div> <br>
+                        <div class="review">
+                            <img src = "images/5.png" id = "smallstrpc"><br>
+                            My octopus is so much fun to watch and has quickly become the centerpiece of my home aquarium. It's very active and curious, and I love its playful personality.
+                        </div>
+                        <div class="review" id="newreview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br><br><br>
+    <div id="total_reviews" style="display: none;">15</div> <!--stores total of 3 reviews so js can average total reviews-->
+    <div id="flag" style="display: none;">flag{ch4cK u53R 1nPut5}</div> <!--adds flag so user can get it via XSS-->
+    <script src="product.js">
+    </script>
+</body>
+
+</html>

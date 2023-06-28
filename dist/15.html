@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Animals R Us </title>
+    <link rel="stylesheet" href="light.css" id = "colour">
+</head>
+
+<body>
+    <div>
+        <div id="mySidenav" class="sidenav">
+            <span id="clsbttn" class="closenav">&#9776;</span>
+            <a href="home.html">home</a>
+            <a href="progress.html">progress</a>
+            <a href="settings.html">settings</a>
+            <a href="instructions.html">instructions</a>
+
+        </div>
+        <div>
+            <div id="main">
+                <span id="opnbttn" class="opennav">&#9776;</span>
+                <div id=buttons>
+                    <button class = "basket">Basket</button>
+                    <button class="logout">Logout</button>
+                </div>
+                <div>
+                    <center>
+                        <h1 id="message">koala</h1>
+                    </center>
+                </div>
+                <div class="grid-container">
+                    <div class="picture"><img id="animal-background" src=images/koala.png></div>
+                    <div class="grid-item">£60<br><div id = "errmsg" style = "color:rgb(11, 241, 23); font-size: 18px;"></div><button id="addbskt">add to basket</button></div><br><br>
+                    <div class="description">This adorable koala is a must-have for any animal lover. With its soft, gray fur and big, fluffy ears, this koala measures 24 inches (60 centimeters) in length and stands at 14 inches (35 centimeters) in height. This tree-dwelling marsupial is a symbol of Australia and is known for its relaxed and sleepy demeanor. Whether you're looking for a unique and cuddly pet or simply want to admire this fascinating creature up close, this live koala is sure to capture your heart.
+                    </div>
+                </div>
+                <div>
+                    <h1><center>reviews</center></h1>
+                    <div>
+                        <form class="leavereview">
+                            <div id="leavereview">
+                                <label>leave a review:</label>
+                                <br>
+                                <textarea placeholder="..." name="review" rows="4"></textarea>
+                                <br>
+                                <label>star rating:</label>
+                                <input type="number" id="starrate" name="starrate" min="1" max="5" required>
+                                <br><br>
+                                <button>submit</button>
+                            </div>
+                        </form>
+                        <div id = "starpic"></div><!--js puts correct star image here-->
+                        <br><br>
+                        <div class="review">
+                            <img src = "images/4.png" id = "smallstrpc"><br>
+                            If you are looking for a low maintenence pet, the koala is great. Mine is asleep for roughly 20 hours each day. I barely have to do anything.
+                        </div> <br>
+                        <div class="review">
+                            <img src = "images/2.png" id = "smallstrpc"><br>
+                            Only order if you live somewhere warm otherwise your heating bill is going to cost a fortune as the koala needs a warm enclosure.
+                        </div> <br>
+                        <div class="review">
+                            <img src = "images/4.png" id = "smallstrpc"><br>
+                            My koala is soooo cuteeeeee!
+                        </div>
+                        <div class="review" id="newreview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br><br><br>
+    <div id="total_reviews" style="display: none;">10</div> <!--stores total of 3 reviews so js can average total reviews-->
+    <div id="flag" style="display: none;">flag{ch4cK u53R 1nPut5}</div> <!--adds flag so user can get it via XSS-->
+    <script src=" product.js">
+    </script>
+</body>
+
+</html>
