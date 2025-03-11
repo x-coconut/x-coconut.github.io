@@ -1,0 +1,199 @@
+button {
+  background-color: whitesmoke;
+  font-size: 16px;
+  padding: 2px 5px 3px 5px; /* top right bottom left */
+  border: 2px solid black;
+  cursor: pointer;
+  border-radius: 10px;
+
+}
+
+button:hover {
+  color: mediumblue;
+  background-color: lightblue;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+}
+
+#icon {
+  width: 15px;
+  height: 15px;
+}
+
+#red_button {
+  background-color: red;
+}
+
+#red_button:hover {
+  color: black;
+  background-color: lightcoral;
+}
+
+#green_button {
+  background-color: green;
+}
+
+#green_button:hover {
+  color: black;
+  background-color: #ACE1AF;
+}
+
+#green_button, #red_button {
+  font-size: 18px;
+  color: white;
+}
+
+#right {
+  margin-left: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+
+.movie {
+  display: flex; 
+  padding: 10px;
+  align-items: center; 
+}
+
+.movie button {
+  width: 150px;
+  font-size: 15px;
+}
+
+#mov_pic {
+  margin-top: 2.2em;
+}
+
+.movie_buttons {
+  display: block; 
+  padding: 0px;
+  align-items: center; 
+}
+
+.movie_buttons button {
+  width: 150px;
+  font-size: 15px;
+}
+
+
+.add-to-basket {
+  width: 100px;
+  height: 40px;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  margin-left: 10em;
+}
+
+.login_main {
+  margin-left: 0;
+  margin-top: 3em;
+}
+
+#main > nav, #main > aside {
+  /* flex: 0 0 20vw; */
+  background: lightgray;
+}
+
+header, footer {
+  background: red;
+  height: 3em;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+header, footer, nav, aside {
+  padding: 1em;
+}
+
+#main {
+  margin-top: 3em;
+  margin-left: 2em;
+}
+
+.basket-error-message {
+  color: red;
+  display: inline;
+}
+
+.basket-hidden {
+  display: none;
+}
+
+
+
+/* ---------------------------------------------------- */
+
+
+.address-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 550px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.form-row label {
+  flex: 0 0 auto;
+  width: 70px;
+}
+
+.form-row input {
+  flex: 1;
+  padding: 2px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+
+/*sidenav*/
+
+nav {
+  height: 100%;
+  max-height: calc(100vh - 3em);
+  top: 3em;
+  position: fixed;
+  left: 0;
+  background-color: #9c3934;
+  overflow-y: auto;
+}
+
+nav button {
+  font-size: 18px;
+  color: black;
+  display: block;
+}

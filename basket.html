@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Rentals</title>
+  <link href="/styles/main.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <strong>Movie Rentals</strong>
+  </header>
+  <div id="main">
+    <nav>
+      <strong>Genres:</strong>
+      <ul>
+        <li>Adventure</li>
+        <li>Animation</li>
+        <li>Science fiction</li>
+        <li>Comedy</li>
+        <li>Drama</li>
+        <li>Horror</li>
+        <li>Action</li>
+      </ul>
+      <br />
+      <button onclick="location.href='/basket.html'"><img src="/images/basket.png" id="icon" />⠀View
+        Basket</button><br />
+      <br />
+      <br />
+      <button onclick="location.href='/shop.html'"><img src="/images/home.png" id="icon" />⠀Home Page</button><br />
+      <br />
+      <br />
+      <button onclick="location.href='/login.html'"><img src="/images/logout.png" id="icon" />⠀Log Out</button><br />
+    </nav>
+    <article>
+      <h1 style="text-align: center">Basket</h1>
+      <div style="background-color: lightgrey; width: 70%; min-width: 450px; margin: auto; padding: 2em">
+        <table style="width: 100%">
+          <thead>
+            <tr>
+              <th>Movie</th>
+              <th>Number of Days</th>
+              <th>Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="basket"></tbody>
+        </table>
+        <hr />
+        <div style="text-align: right"><strong>Total Price:</strong> £<span id="total-price"></span></div>
+        <hr />
+        <button id="red_button" onclick="clearBasket()"><img src="/images/bin.png" id="icon" />⠀Empty Basket</button>
+        <button id="green_button" onclick="goToCheckout()"><img src="/images/coin.png" id="icon" />⠀Checkout</button>
+        <p id="empty-basket-message" style="color: red; text-align: left; display: none;">The basket is empty</p>
+        <p id="invalid-basket-message" style="color: red; text-align: left; display: none;">Some items have invalid
+          numbers of days. Please correct them before proceeding to checkout.</p>
+      </div>
+    </article>
+  </div>
+</body>
+
+<script>
+let canProceedToCheckout = true; // track if users should be allowed to checkout
+
+function isValidRentDays(rentDays) {
+  return !isNaN(rentDays) && rentDays > 0 && rentDays === Math.floor(rentDays) && rentDays <= 50;
+}
+
+function clearBasket() {
+  localStorage.setItem('basket', '[]');
+  window.location.reload();
+}
+
+const basketContainer = document.getElementById("basket");
+
+let basket = JSON.parse(localStorage.getItem("basket") ?? "[]");
+
+function updateBasket() {
+  localStorage.setItem("basket", JSON.stringify(basket));
+  renderBasket();
+}
+
+function renderBasket() {
+  basketContainer.innerHTML = "";
+  if (basket.length === 0) {
+    basketContainer.innerHTML = "<tr><td colspan='4' style='text-align: center;'>The basket is empty</td></tr>";
+    document.getElementById("total-price").textContent = "0.00";
+  } else {
+    let totalPrice = 0.0;
+
+    basket.forEach((basketItem, index) => {
+      const rentDays = basketItem.rentDays;
+      const isValid = isValidRentDays(rentDays);
+
+      basketContainer.insertAdjacentHTML(
+        "beforeend",
+        `  
+        <tr>
+          <td>${basketItem.name}</td>
+          <td>
+            <input type="number" value="${basketItem.rentDays}" min="1" onchange="updateRentDays(${index}, this.value)" />
+            <br />
+            <span id="error-${index}" class="${isValid ? 'basket-hidden' : 'basket-error-message'}">
+              ${isValid ? '' : (rentDays <= 0 || rentDays !== Math.floor(rentDays) ? 'Invalid number of days.' : 'Must be 50 days or less.')}
+            </span>
+          </td>
+          <td>£${(basketItem.price * basketItem.rentDays).toFixed(2)}</td>
+          <td><button onclick="deleteItem(${index})" id="red_button">Remove</button></td>
+        </tr>
+      `);
+      totalPrice += basketItem.price * basketItem.rentDays;
+    });
+
+    document.getElementById("total-price").textContent = totalPrice.toFixed(2);
+
+    validateBasketForCheckout();
+  }
+}
+
+function updateRentDays(index, value) {
+  const rentDays = parseFloat(value);
+  const errorElement = document.getElementById(`error-${index}`);
+
+  // check for invalid rent days - negative, zero, decimal, or over 50
+  if (!isValidRentDays(rentDays)) {
+    errorElement.style.display = "inline";
+    errorElement.textContent = rentDays <= 0 || rentDays !== Math.floor(rentDays) ? "Invalid number of days." : "Must be 50 days or less.";
+    canProceedToCheckout = false;
+
+    basket[index].rentDays = value;
+  } else {
+    basket[index].rentDays = rentDays;
+    errorElement.style.display = "none";
+    basket[index].previousValidRentDays = rentDays;
+
+    validateBasketForCheckout();
+  }
+
+  updateBasket(); // update the displayed basket 
+}
+
+function validateBasketForCheckout() {
+  canProceedToCheckout = basket.every((basketItem) => isValidRentDays(basketItem.rentDays));
+
+  if (canProceedToCheckout && basket.length > 0) {
+    document.getElementById("invalid-basket-message").style.display = "none";
+  } else {
+    document.getElementById("invalid-basket-message").style.display = "block";
+  }
+
+  if (basket.length === 0) {
+    document.getElementById("empty-basket-message").style.display = "block";
+  } else {
+    document.getElementById("empty-basket-message").style.display = "none";
+  }
+}
+
+function goToCheckout() {
+  if (basket.length === 0 || !canProceedToCheckout) {
+    document.getElementById("empty-basket-message").style.display = basket.length === 0 ? "block" : "none";
+    document.getElementById("invalid-basket-message").style.display = !canProceedToCheckout ? "block" : "none";
+    return false; // stop user checking out
+  } else {
+    window.location.href = '/order.html';
+  }
+}
+
+function deleteItem(index) {
+  basket.splice(index, 1);
+  updateBasket();
+}
+
+renderBasket();
+</script>
+</html>

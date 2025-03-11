@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Rentals</title>
+    <link href="/styles/main.css" rel="stylesheet" />
+  </head>
+  <body class="login_main">
+    <header>
+      <strong>Movie Rentals</strong>
+    </header>
+    <div>
+      <article>
+        <h1 style="text-align: center">Register with Movie Rentals!</h1>
+        <div style="background-color: lightgrey; width: 40%; margin: auto; padding: 1em">
+          <form id="registerForm">
+            <div id="err_msg" style="color: red; font-weight: bold;"></div>
+
+            <label>Email:</label><br />
+            <input type="text" id="email" name="email" placeholder="Email" style="width: 100%" oninput="validateEmail()" />
+            <div id="emailError" style="color: red;"></div>
+
+            <br />
+            <label>Password:</label><br />
+            <input type="password" id="password" name="password" placeholder="Password" style="width: 100%" oninput="validatePassword()" />
+            <div> Password requirements: <br>
+              <div id="len_req">- at least 8 characters long</div>
+              <div id="num_req">- contain a number or symbol</div>
+            </div><br>
+            <div style="width: 100%; text-align: center">
+              <button type="submit" style="width: 45%">Register</button>
+              <button type="button" onclick="window.location.href='/login.html'" style="width: 45%">Back to Login Page</button>
+            </div>
+          </form>
+        </div>
+      </article>
+    </div>
+  </body>
+
+  <script>
+    // validate email
+    function validateEmail() {
+      const email = document.getElementById("email").value;
+      const emailError = document.getElementById("emailError");
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(email)) {
+        emailError.textContent = "Invalid email format";
+        emailError.style.color = "red";
+        return false;
+      } else {
+        emailError.textContent = "Valid email";
+        emailError.style.color = "green";
+        return true;
+      }
+    }
+
+    // validate password (>= 8 chars, has a number/symbol)
+    function validatePassword() {
+      const password = document.getElementById("password").value;
+
+      const lenReq = document.getElementById("len_req");
+      const numReq = document.getElementById("num_req");
+      const passwordError = document.getElementById("passwordError");
+
+      // length check
+      if (password.length >= 8) {
+        lenReq.style.color = "green";
+      } else {
+        lenReq.style.color = "red";
+      }
+
+      // number/symbol check
+      const passwordRegex = /^(?=.*[0-9!@#$%^&*?.<>~:;{}=_£'"[\]\\|/`+-])(?=.{8,})/;
+      if (/[0-9!@#$%^&*?.<>~:;{}=_£'"[\]\\|/`+-]/.test(password)) {
+        numReq.style.color = "green"; // dynamically change the message colour
+      } else {
+        numReq.style.color = "red"; // dynamically change the message colour
+      }
+
+      // dynamically remove pwd err messages if requirements are met
+      if (password.length >= 8 && /[0-9!@#$%^&*?.<>~:;{}=_£'"[\]\\|/`+-]/.test(password)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const lenReq = document.getElementById("len_req");
+      const numReq = document.getElementById("num_req");
+
+      if (!validateEmail() || !validatePassword()) {
+        document.getElementById("err_msg").textContent = "Please fix errors before submitting.";
+
+        // dynamically change the message colour
+        if (document.getElementById("password").value.length < 8) {
+          lenReq.style.color = "red";
+        }
+
+        if (!/[0-9!@#$%^&*?.<>~:;{}=_£'"[\]\\|/`+-]/.test(document.getElementById("password").value)) {
+          numReq.style.color = "red";
+        }
+
+        return;
+      }
+
+      const userData = {
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value
+      };
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+
+      users.push(userData);
+
+      localStorage.setItem("users", JSON.stringify(users));
+
+      document.getElementById("registerForm").reset();
+
+      window.location.href = "/shop.html";
+    });
+  </script>
+</html>

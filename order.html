@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Rentals</title>
+  <link href="/styles/main.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <strong>Movie Rentals</strong>
+  </header>
+  <div id="main">
+    <nav>
+      <strong>Genres:</strong>
+      <ul>
+        <li>Adventure</li>
+        <li>Animation</li>
+        <li>Science fiction</li>
+        <li>Comedy</li>
+        <li>Drama</li>
+        <li>Horror</li>
+        <li>Action</li>
+      </ul>
+      <br />
+      <button onclick="location.href='/basket.html'"><img src="/images/basket.png" id="icon" />⠀View
+        Basket</button><br />
+      <br />
+      <br />
+      <button onclick="location.href='/shop.html'"><img src="/images/home.png" id="icon" />⠀Home Page</button><br />
+      <br />
+      <br />
+      <button onclick="location.href='/login.html'"><img src="/images/logout.png" id="icon" />⠀Log Out</button><br />
+    </nav>
+    <article>
+      <h1 style="text-align: center">Payment Details</h1>
+      <div style="background-color: lightgrey; width: 70%; min-width: 300px; margin: auto; padding: 2em">
+        <form method="GET" action="/invoice.html" onsubmit="return storeData()">
+          <div>
+            <span>Title: ⠀⠀⠀⠀</span>
+            <input type="text" id="title" required />
+            <div id="title-error" style="color: red; display: none;"></div>
+            <br>
+            <span>First Name:</span>
+            <input type="text" id="firstName" required />
+            <div id="firstName-error" style="color: red; display: none;"></div>
+            <br>
+            <span>Last Name:</span>
+            <input type="text" id="surname" required />
+            <div id="surname-error" style="color: red; display: none;"></div>
+          </div>
+          <hr />
+
+          <div class="address-form">
+            <div class="form-row">
+              <label for="addressNumber">Number:</label>
+              <input type="text" id="addressNumber" placeholder="House Number or Name" required />
+              <div id="addressNumber-error" style="color: red; display: none;"></div>
+            </div>
+            <div class="form-row">
+              <label for="addressStreet">Street:⠀⠀⠀</label>
+              <input type="text" id="addressStreet" placeholder="Street" required />
+              <div id="addressStreet-error" style="color: red; display: none;"></div>
+            </div>
+            <div class="form-row">
+              <label for="addressCity">City:</label>
+              <input type="text" id="addressCity" placeholder="City" required />
+              <div id="addressCity-error" style="color: red; display: none;"></div>
+            </div>
+            <div class="form-row">
+              <label for="addressCountry">Country:</label>
+              <input type="text" id="addressCountry" placeholder="Country" required />
+              <div id="addressCountry-error" style="color: red; display: none;"></div>
+            </div>
+            <div class="form-row">
+              <label for="addressPostcode">Postcode:</label>
+              <input type="text" id="addressPostcode" placeholder="Postcode" required />
+              <div id="addressPostcode-error" style="color: red; display: none;"></div>
+            </div>
+          </div>
+
+          <hr />
+          <div>
+            <span>Card Type:</span>
+            <label for="visa">⠀Visa</label>
+            <input type="radio" name="card" value="visa" id="visa" checked />
+
+            <label for="solo">⠀⠀⠀Solo</label>
+            <input type="radio" name="card" value="solo" id="solo" />
+
+            <label for="mastercard">⠀⠀⠀Mastercard</label>
+            <input type="radio" name="card" value="mastercard" id="mastercard" />
+
+            <label for="switch">⠀⠀⠀Switch</label>
+            <input type="radio" name="card" value="switch" id="switch" />
+
+            <br>
+            <span>Card Number:</span>
+            <input type="text" id="cardNumber" minlength="19" maxlength="19" placeholder="0000 1111 2222 3333"
+              required />
+            <div id="cardNumber-error" style="color: red; display: none;"></div>
+            <br>
+            <span>Expiry Date: ⠀</span>
+            <input type="number" id="expiryMonth" min="1" max="12" placeholder="MM" required />
+            <input type="number" id="expiryYear" min="25" max="35" placeholder="YY" required />
+            <div id="expiry-error" style="color: red; display: none;"></div>
+            <br>
+            <span>CVC:⠀⠀⠀⠀⠀⠀</span>
+            <input type="number" id="cvc" min="0" max="999" placeholder="123" required />
+            <div id="cvc-error" style="color: red; display: none;"></div>
+          </div>
+          <div>
+            <br><br>
+            <button id="red_button" type="button" onclick="window.location.href='/shop.html'">Cancel</button>
+            <button id="green_button" type="submit">Proceed</button>
+          </div>
+        </form>
+      </div>
+    </article>
+  </div>
+</body>
+
+<script>
+
+  function storeData() {
+    clearErrors();
+    let valid = true;
+
+    const fields = [
+      { id: 'title', errorId: 'title-error', type: 'string', errorMessage: 'Title is required and should only contain letters' },
+      { id: 'firstName', errorId: 'firstName-error', type: 'string', errorMessage: 'First Name is required and should only contain letters' },
+      { id: 'surname', errorId: 'surname-error', type: 'string', errorMessage: 'Surname is required and should only contain letters' },
+      { id: 'addressNumber', errorId: 'addressNumber-error', type: 'alphanumeric', errorMessage: 'Invalid house number/name' },
+      { id: 'addressStreet', errorId: 'addressStreet-error', type: 'string', errorMessage: 'Street is required and should only contain letters' },
+      { id: 'addressCity', errorId: 'addressCity-error', type: 'string', errorMessage: 'City is required and should only contain letters' },
+      { id: 'addressCountry', errorId: 'addressCountry-error', type: 'string', errorMessage: 'Country is required and should only contain letters' },
+      { id: 'addressPostcode', errorId: 'addressPostcode-error', type: 'other', errorMessage: 'Invalid postcode (7-9 characters, alphanumeric)' },
+      { id: 'cardNumber', errorId: 'cardNumber-error', type: 'other', errorMessage: 'Invalid card number' },
+      { id: 'expiryMonth', errorId: 'expiry-error', type: 'number', errorMessage: 'Invalid month' },
+      { id: 'expiryYear', errorId: 'expiry-error', type: 'number', errorMessage: 'Invalid year' },
+      { id: 'cvc', errorId: 'cvc-error', type: 'other', errorMessage: 'Invalid CVC (3 digits)' }
+    ];
+
+    fields.forEach(field => {
+      const input = document.getElementById(field.id);
+      const error = document.getElementById(field.errorId);
+
+      if (!input.value.trim()) {
+        error.style.display = 'block';
+        error.textContent = field.errorMessage;
+        valid = false;
+      } else if (field.type === 'string' && !/^[a-zA-Z\s]+$/.test(input.value.trim())) {
+        error.style.display = 'block';
+        error.textContent = field.errorMessage;
+        valid = false;
+      } else if (field.type === 'alphanumeric' && !/^[a-zA-Z0-9\s]+$/.test(input.value.trim())) {
+        error.style.display = 'block';
+        error.textContent = field.errorMessage;
+        valid = false;
+      } else if (field.type === 'number' && isNaN(input.value.trim())) {
+        error.style.display = 'block';
+        error.textContent = field.errorMessage;
+        valid = false;
+      }
+      else if (field.type === 'other') {
+        error.textContent = field.errorMessage;
+      }
+
+    });
+
+    // validate card number
+    const cardNumber = document.getElementById('cardNumber').value;
+    if (!/^\d{4}\s\d{4}\s\d{4}\s\d{4}$/.test(cardNumber)) {
+      document.getElementById('cardNumber-error').style.display = 'block';
+      valid = false;
+    }
+
+    // validate postcode
+    const postcode = document.getElementById('addressPostcode').value.trim();
+    const formattedPostcode = postcode.replace(/\s+/g, '').toUpperCase(); // remove spaces and convert to uppercase
+    if (!/^[a-zA-Z0-9]{6,8}$/.test(formattedPostcode)) { // check alphanumeric and 6-8 chars
+      document.getElementById('addressPostcode-error').style.display = 'block';
+      valid = false;
+    } else {
+      document.getElementById('addressPostcode').value = formattedPostcode;
+    }
+
+    // validate cvc
+    const cvc = document.getElementById('cvc').value;
+    if (cvc.length !== 3 || isNaN(cvc)) {
+      document.getElementById('cvc-error').style.display = 'block';
+      valid = false;
+    }
+
+    if (!valid) {
+      return valid;
+    }
+
+    const formInputs = ["title", "firstName", "surname", "addressNumber", "addressStreet", "addressPostcode", "addressCountry", "addressCity", "cardNumber", "expiryMonth", "expiryYear"];
+    const formData = {};
+    formInputs.forEach((inputId) => {
+      formData[inputId] = document.getElementById(inputId).value;
+    });
+
+    formData.card = document.querySelector("input[name=card]:checked").value;
+
+    localStorage.setItem("paymentDetails", JSON.stringify(formData));
+
+    return valid;
+  }
+
+
+  function clearErrors() {
+    const errorFields = [
+      'title-error', 'firstName-error', 'surname-error',
+      'addressNumber-error', 'addressStreet-error', 'addressCity-error',
+      'addressCountry-error', 'addressPostcode-error',
+      'cardNumber-error', 'expiryMonth-error', 'expiryYear-error', 'cvc-error'
+    ];
+
+    // clear error messages
+    errorFields.forEach(field => {
+      const errorElement = document.getElementById(field);
+      if (errorElement) {
+        errorElement.textContent = ''; 
+        errorElement.style.display = 'none';
+      }
+    });
+  }
+
+  // format card number while user types
+  const cardNumberInput = document.getElementById('cardNumber');
+  cardNumberInput.addEventListener('input', (e) => {
+    let inputVal = e.target.value.replace(/\D/g, ''); // remove non-digits
+    inputVal = inputVal.match(/.{1,4}/g)?.join(' ') || inputVal; // group every 4 digits
+    e.target.value = inputVal;
+  });
+
+  // format postcode as the user types
+  const postcodeInput = document.getElementById('addressPostcode');
+  postcodeInput.addEventListener('input', (e) => {
+    let inputVal = e.target.value.replace(/\s+/g, '').toUpperCase(); // remove spaces and convert to uppercase
+    inputVal = inputVal.replace(/^([A-Z]{1,2}\d{1}[A-Z\d]?)(\d[A-Z]{2})$/, '$1 $2'); // UK postcode format
+    e.target.value = inputVal;
+  });
+
+
+</script>
+
+</html>
